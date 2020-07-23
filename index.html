@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+    <title>Главная страница</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-logo-text">
+        <img src="./img/logo.svg" alt="логотип цон" />
+        <p>
+          Официальный интернет-ресурс НАО «ГОСУДАРСТВЕННАЯ КОРПОРАЦИЯ
+          «ПРАВИТЕЛЬСТВО ДЛЯ ГРАЖДАН»»
+        </p>
+      </div>
+      <div class="header-anchors-holder">
+        <a href="">О корпорации</a>
+        <a href="">Корпоративное управление</a>
+        <a href="">Госуслуги</a>
+        <a href="">Форум</a>
+        <a href="">Пресс-центр</a>
+        <a href="">Контакты</a>
+      </div>
+      <div class="langSwitch-and-search-holder">
+        <div class="dropdown-holder closed">
+          <div class="lang"><a href="">RU</a></div>
+          <ul class="dropdown">
+            <li><a href="">KZ</a></li>
+            <li><a href="">EN</a></li>
+          </ul>
+        </div>
+        <div class="search-img-holder"><img src="./img/search.svg" alt="иконка поиска" /></div>
+      </div>
+    </header>
+    <div>
+      <div class="my-slider">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+    <script type="module">
+      import { tns } from "./src/tiny-slider.js";
+
+      const slider = tns({
+        container: ".my-slider",
+        items: 3,
+        slideBy: "page",
+        autoplay: true,
+      });
+    </script>
+  </body>
+</html>

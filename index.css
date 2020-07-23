@@ -1,0 +1,140 @@
+body {
+  width: 100vw;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1200px;
+  height: 86px;
+}
+
+.header-logo-text {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 324px;
+  height: 68px;
+}
+
+.header-logo-text > img {
+  height: 100%;
+  width: 68px;
+}
+
+.header-logo-text > p {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 17px;
+  margin: 0;
+  height: 51.5px;
+  width: 236px;
+}
+
+.header-anchors-holder {
+  display: flex;
+  justify-content: space-around;
+  width: 732px;
+}
+
+.header-anchors-holder > a {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 15px;
+  line-height: 22px;
+  text-decoration: none;
+  color: #585858;
+}
+
+.langSwitch-and-search-holder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 102px;
+  height: 43px;
+}
+
+.dropdown-holder {
+  transition: all 0.2s ease-in-out;
+  width: 43px;
+  height: 43px;
+  position: relative;
+}
+
+.dropdown-holder a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #0c8b0a;
+    line-height: 18px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 500;
+}
+
+.dropdown-holder li:hover {
+    background: #e8f9e8;
+}
+
+.lang {
+  height: 43px;
+  width: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px hidden;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.lang:hover {
+    background: #e8f9e8;
+}
+
+.dropdown {
+  position: absolute;
+  transition: all 0.2s ease-in-out;
+  height: 84px;
+  width: 43px;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown li {
+  height: 43px;
+  width: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px hidden;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  list-style-type: none;
+}
+
+.dropdown-holder.closed .dropdown {
+  display: none;
+}
+
+.search-img-holder {
+  height: 43px;
+  width: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px hidden;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.search-img-holder:hover {
+  background: #e8f9e8;
+}
+
+.search-img-holder > img {
+  height: 18px;
+}
