@@ -1,0 +1,1 @@
+# kazinsys-test-task
