@@ -3,16 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./index.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css"
-    />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+    <link rel="stylesheet" href="./index.css" />
     <title>Главная страница</title>
   </head>
   <body>
@@ -40,27 +35,44 @@
             <li><a href="">EN</a></li>
           </ul>
         </div>
-        <div class="search-img-holder"><img src="./img/search.svg" alt="иконка поиска" /></div>
+        <div class="search-img-holder">
+          <img src="./img/search.svg" alt="иконка поиска" />
+        </div>
       </div>
     </header>
-    <div>
-      <div class="my-slider">
-        <div></div>
-        <div></div>
-        <div></div>
+    <div class="banner">
+      <div class="carousel">
+        <div class="slide initial">
+          <div class="first-slide-holder"> 
+            <div class="first-slide">
+              <div class="first-slide-text-and-button">
+                <p>Получение услуг через одноразовый пароль</p>
+                <p>
+                  Сегодня самые популярные справки вы можете получать
+                  самостоятельно, без ЭЦП и не обращаться к инспектору.
+                </p>
+                <div><a href="">Подробнее</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide">DADASFSD</div>
+        <div class="slide">ASFAFAGG</div>
+        <div class="arrow-buttons-and-dots-holder">
+          <div>
+            <div class="dots">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+            <div class="arrow-buttons"> 
+              <div class="carousel__button--prev"><div></div></div>
+              <div class="carousel__button--next"><div></div></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
     <script src="./index.js"></script>
-    <script type="module">
-      import { tns } from "./src/tiny-slider.js";
-
-      const slider = tns({
-        container: ".my-slider",
-        items: 3,
-        slideBy: "page",
-        autoplay: true,
-      });
-    </script>
   </body>
 </html>
