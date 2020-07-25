@@ -160,6 +160,8 @@ header {
 .carousel {
   transform-style: preserve-3d;
   position: relative;
+  width: 100%;
+  display: flex;
 }
 
 .slide {
@@ -289,7 +291,6 @@ header {
   height: 280px;
   justify-self: flex-start;
   align-items: flex-start;
-  margin-left: 10px;
 }
 
 .first-slide-text-and-button > p {
@@ -359,7 +360,7 @@ header {
 }
 
 .news-section-title > div > p {
-  margin: 0 0 0 10px;
+  margin: 0;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: bold;
   font-size: 28px;
@@ -389,14 +390,7 @@ header {
   background: #ffffff;
   box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.12);
   border-radius: 2px;
-  margin-left: 25px;
-  opacity: 0;
-  z-index: 1;
-  transition: transform 0.5s, opacity 0.5s, z-index 0.5s;
-}
-
-.initial-news-slide {
-  margin-left: 10px;
+  margin-right: 25px;
 }
 
 .news-slide > img {
@@ -446,12 +440,26 @@ header {
   justify-content: center;
 }
 
+.carousel-holder > div:first-child { 
+  overflow: hidden;
+  width: 1350px;
+  margin-left: 150px;
+}
+
+.ncor {
+  transition: transform 0.5s, opacity 0.5s, z-index 0.5s;
+}
+
 .news-arrow-buttons-holder {
   position: absolute;
   display: flex;
   width: 1350px;
   justify-content: space-between;
   height: 50px;
+}
+
+.news-arrow-buttons-holder > div > div {
+  transform: translateY(0);
 }
 
 .news-slide.prev {
@@ -461,3 +469,5 @@ header {
 .news-slide.next {
   transform: translateX(383px);
 }
+
+/* min-width 765 992 */

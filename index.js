@@ -12,104 +12,61 @@ dropdown.addEventListener("mouseleave", (e) => {
   }
 });
 
+const carousel = document.getElementsByClassName("carousel");
+const newsSlide = carousel[1].querySelector(".news-slide");
+const allSlides = carousel[1].querySelectorAll(".news-slide");
+const leftButton = document.getElementsByClassName("carousel__button--prev");
+const rightButton = document.getElementsByClassName("carousel__button--next");
+
+const carouselWidth = carousel[1].offsetWidth;
+const slideWidth = newsSlide.offsetWidth;
+const slideStyle = newsSlide.currentStyle || window.getComputedStyle(newsSlide);
+const slideMarginRight = Number(slideStyle.marginRight.match(/\d+/g)[0]);
+
+const slidesCount = carousel[1].querySelectorAll(".news-slide").length;
+let blurredSlide = 4;
+let offset = 0;
+// const blur =
 const handleNewsCarousel = () => {
-  const d = document;
-  let newsClassName = "news-slide";
-  let dotClassName = "dot";
-
-  news = d.getElementsByClassName(newsClassName),
-    totalNews = news.length,
-    newsSlide = 0,
-    moving = true;
-  (dots = d.getElementsByClassName(dotClassName)), (dot = 0);
-
-  function setInitialClasses() {
-    news[totalNews - 1].classList.add("prev");
-    news[0].classList.add("active");
-    news[1].classList.add("active");
-    news[2].classList.add("active");
-    news[3].classList.add("next");
-    dots[3].classList.add("green");
-  }
-
-  function setEventListeners() {
-    const nextNews = d.getElementsByClassName("carousel__button--next")[1],
-      prevNews = d.getElementsByClassName("carousel__button--prev")[1];
-    nextNews.addEventListener("click", moveNext);
-    prevNews.addEventListener("click", movePrev);
-    console.log(nextNews)
-  }
-
-  function moveNext() {
-    if (!moving) {
-      if (newsSlide === totalNews - 1) {
-        newsSlide = 0;
-        dot = 0;
-      } else if(newsSlide === 0) {
-        newsSlide++;
-        console.log(newsSlide);
+  const maxX = -((slideWidth + 25) * (slidesCount - 3));
+  allSlides[3].style.opacity = 0.3;
+  leftButton[1].addEventListener("click", function () {
+    if (offset !== 0) {
+      offset += slideWidth + slideMarginRight;
+      carousel[1].style.transform = `translateX(${offset}px)`;
+      if (blurredSlide < slidesCount && blurredSlide > 4) {
+        allSlides[blurredSlide].style.opacity = 1;
+        allSlides[blurredSlide - 1].style.opacity = 0.3;
+        blurredSlide -= 1;
+        console.log(blurredSlide)
+      } else if (blurredSlide === slidesCount) {
+        allSlides[blurredSlide - 1].style.opacity = 0.3;
+        blurredSlide-=1;
+        console.log(blurredSlide)
       } else {
-        newsSlide++;
-        dot++;
-      }
-      moveCarouselTo(newsSlide);
-    }
-  }
-
-  function movePrev() {
-    if (!moving) {
-      if (newsSlide === 0) {
-        newsSlide = totalNews - 1;
-        dot = totalNews - 1;
-      } else {
-        newsSlide--;
-        dot--;
-      }
-
-      moveCarouselTo(newsSlide);
-    }
-  }
-
-  function disableInteraction() {
-    moving = true;
-    setTimeout(function () {
-      moving = false;
-    }, 500);
-  }
-
-  function moveCarouselTo(newsSlide) {
-    if (!moving) {
-      disableInteraction();
-
-      let newPrevious = newsSlide - 1,
-        newNext = newsSlide + 1
-
-      if (totalNews - 1 > 3) {
-        if (newsSlide === 0) {
-          newPrevious = totalNews - 1;
-          newNext = newsSlide + 3;
-        } else if (newsSlide === totalNews - 1) {
-          newPrevious = newsSlide - 1;
-          newNext = 0;
-        }
-        news[newPrevious].className = newsClassName + " prev";
-        news[newNext].className = newsClassName + " next";
-        news[newsSlide].className = newsClassName + " active";
+        allSlides[blurredSlide - 1].style.opacity = 0.3;
       }
     }
-  }
+  });
 
-  function initCarousel() {
-    setInitialClasses();
-    setEventListeners();
-    moving = false;
-  }
-
-  initCarousel();
-}
+  rightButton[1].addEventListener("click", function () {
+    console.log(offset);
+    if (offset !== -Math.abs(maxX)) {
+      offset -= slideWidth + slideMarginRight;
+      carousel[1].style.transform = `translateX(${offset}px)`;
+      if (blurredSlide < slidesCount) {
+        allSlides[blurredSlide].style.opacity = 0.3;
+        allSlides[blurredSlide - 1].style.opacity = 1;
+        blurredSlide += 1;
+        console.log(blurredSlide)
+      } else if (blurredSlide === slidesCount) {
+        allSlides[slidesCount - 1].style.opacity = 1;
+      }
+    }
+  });
+};
 
 handleNewsCarousel();
-
 
 !(function (d) {
   let itemClassName = "slide";
@@ -129,10 +86,8 @@ handleNewsCarousel();
   }
 
   function setEventListeners() {
-    const next = d.getElementsByClassName("carousel__button--next")[0],
-      prev = d.getElementsByClassName("carousel__button--prev")[0];
-    next.addEventListener("click", moveNext);
-    prev.addEventListener("click", movePrev);
+    rightButton[0].addEventListener("click", moveNext);
+    leftButton[0].addEventListener("click", movePrev);
   }
 
   function moveNext() {
