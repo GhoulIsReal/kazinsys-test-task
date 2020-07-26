@@ -434,8 +434,12 @@ header {
 
 .carousel-holder {
   width: 100vw;
+<<<<<<< HEAD
   height: 520px;
   position: relative;
+=======
+  height: 545px;
+>>>>>>> 102faba... ls
   display: flex;
   align-items: center;
   justify-content: center;
@@ -457,6 +461,10 @@ header {
   width: 1350px;
   justify-content: space-between;
   height: 50px;
+<<<<<<< HEAD
+=======
+  z-index: 11;
+>>>>>>> 102faba... ls
 }
 
 .news-arrow-buttons-holder > div > div {
