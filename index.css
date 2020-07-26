@@ -5,6 +5,7 @@ body {
   align-items: center;
   margin: 0;
   overflow-x: hidden;
+  background-color: #fff;
 }
 
 .container {
@@ -81,7 +82,7 @@ header {
   font-weight: 500;
 }
 
-.dropdown-holder li:hover {
+.dropdown-holder > ul > li:hover {
   background: #e8f9e8;
 }
 
@@ -525,6 +526,7 @@ header {
 
   .dropdown li {
     width: 40px;
+    height: 40px;
   }
 
   .first-slide-text-and-button > p:nth-child(1) {
