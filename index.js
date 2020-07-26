@@ -17,6 +17,7 @@ const newsSlide = carousel[1].querySelector(".news-slide");
 const allSlides = carousel[1].querySelectorAll(".news-slide");
 const leftButton = document.getElementsByClassName("carousel__button--prev");
 const rightButton = document.getElementsByClassName("carousel__button--next");
+const dots = document.getElementsByClassName("dot")
 
 const carouselWidth = carousel[1].offsetWidth;
 const slideWidth = newsSlide.offsetWidth;
@@ -26,10 +27,11 @@ const slideMarginRight = Number(slideStyle.marginRight.match(/\d+/g)[0]);
 const slidesCount = carousel[1].querySelectorAll(".news-slide").length;
 let blurredSlide = 4;
 let offset = 0;
-// const blur =
+
 const handleNewsCarousel = () => {
   const maxX = -((slideWidth + 25) * (slidesCount - 3));
   allSlides[3].style.opacity = 0.3;
+  dots[3].classList.add("green");
   leftButton[1].addEventListener("click", function () {
     if (offset !== 0) {
       offset += slideWidth + slideMarginRight;
@@ -38,19 +40,18 @@ const handleNewsCarousel = () => {
         allSlides[blurredSlide].style.opacity = 1;
         allSlides[blurredSlide - 1].style.opacity = 0.3;
         blurredSlide -= 1;
-        console.log(blurredSlide)
       } else if (blurredSlide === slidesCount) {
         allSlides[blurredSlide - 1].style.opacity = 0.3;
         blurredSlide-=1;
-        console.log(blurredSlide)
       } else {
         allSlides[blurredSlide - 1].style.opacity = 0.3;
+        dots[4].classList.remove("green");
+        dots[3].classList.add("green");
       }
     }
   });
 
   rightButton[1].addEventListener("click", function () {
-    console.log(offset);
     if (offset !== -Math.abs(maxX)) {
       offset -= slideWidth + slideMarginRight;
       carousel[1].style.transform = `translateX(${offset}px)`;
@@ -58,9 +59,10 @@ const handleNewsCarousel = () => {
         allSlides[blurredSlide].style.opacity = 0.3;
         allSlides[blurredSlide - 1].style.opacity = 1;
         blurredSlide += 1;
-        console.log(blurredSlide)
       } else if (blurredSlide === slidesCount) {
         allSlides[slidesCount - 1].style.opacity = 1;
+        dots[3].classList.remove("green");
+        dots[4].classList.add("green");
       }
     }
   });
@@ -76,8 +78,7 @@ handleNewsCarousel();
     (slide = 0),
     (moving = true);
 
-  (dots = d.getElementsByClassName(dotClassName)), (dot = 0);
-
+  dot = 0;
   function setInitialClasses() {
     items[totalItems - 1].classList.add("prev");
     items[0].classList.add("active");
