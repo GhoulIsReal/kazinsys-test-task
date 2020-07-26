@@ -426,8 +426,8 @@ header {
 .carousel-holder {
   width: 100vw;
   height: 545px;
-  position: relative;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
@@ -448,7 +448,6 @@ header {
   justify-content: space-between;
   height: 50px;
   z-index: 11;
-  top: 45%;
 }
 
 .news-arrow-buttons-holder > div > div {
