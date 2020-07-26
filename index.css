@@ -457,6 +457,8 @@ header {
   width: 1350px;
   justify-content: space-between;
   height: 50px;
+  z-index: 11;
+  top: 50%;
 }
 
 .news-arrow-buttons-holder > div > div {
